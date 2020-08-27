@@ -1,22 +1,25 @@
 {
-  "name": "rest-express",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "ci:test": "npm-run-all -p -r start test",
-    "start": "node src/index.js",
-    "test": "cypress run"
+  "language": "node_js",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "node_js": [
+    "10"
+  ],
+  "before_install": [
+    "sudo apt-get -y install libgconf-2-4"
+  ],
+  "cache": {
+    "npm": true,
+    "directories": [
+      "~/.cache"
+    ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "cypress": "^3.4.1",
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
-  }
+  "install": [
+    "npm install"
+  ],
+  "script": [
+    "npm run ci:test"
+  ]
 }
